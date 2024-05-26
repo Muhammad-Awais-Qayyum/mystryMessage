@@ -19,6 +19,9 @@ const Page = () => {
   const [messages, SetMessages] = useState<Message[]>([])
   const [isLoading, setIsLoading] = useState(false)
   const [isSwitchLoading, setIsSwitchLoading] = useState(false)
+  const [baseUrl, setBaseUrl] = useState('');
+
+
   const { toast } = useToast()
 
   const handleDeleteMessage = (messageId: string) => {
@@ -48,7 +51,7 @@ const Page = () => {
     } finally {
       setIsSwitchLoading(false)
     }
-  }, [setValue,toast,setIsSwitchLoading])
+  }, [setValue, toast, setIsSwitchLoading])
 
   const fetchMessage = useCallback(async (refresh: boolean = false) => {
     setIsLoading(true)
@@ -73,7 +76,7 @@ const Page = () => {
       setIsLoading(false)
       setIsSwitchLoading(false)
     }
-  }, [setIsLoading, SetMessages,setIsSwitchLoading,toast])
+  }, [setIsLoading, SetMessages, setIsSwitchLoading, toast])
 
   useEffect(() => {
     if (!session || !session.user) return
@@ -101,24 +104,28 @@ const Page = () => {
       })
     }
   }
-
-
   const username = session?.user?.username;
-const baseUrl = `${window.location.protocol}://${window.location.host}`; 
-const profileUrl = `${baseUrl}/u/${username}`;
+  useEffect(() => {
+    setBaseUrl(`${window.location.protocol}://${window.location.host}`);
+  }, []);
 
-const copyToClipboard = () => {
-  navigator.clipboard.writeText(profileUrl);
-  toast({
-    title: 'Copied to clipboard',
-  });
-};
+  const profileUrl = `${baseUrl}/u/${username}`;
+
+
+
+
+  const copyToClipboard = () => {
+    navigator.clipboard.writeText(profileUrl);
+    toast({
+      title: 'Copied to clipboard',
+    });
+  };
   if (!session || !session.user) {
     return <div>Please Login</div>
   }
-  
+
   return (
-    <div style={{fontFamily:'cursive' }} className="my-8 mx-4 md:mx-8 lg:mx-auto p-6 bg-white rounded w-full max-w-6xl">
+    <div style={{ fontFamily: 'cursive' }} className="my-8 mx-4 md:mx-8 lg:mx-auto p-6 bg-white rounded w-full max-w-6xl">
       <h1 className="text-4xl font-bold mb-4">User Dashboard</h1>
 
       <div className="mb-4">
