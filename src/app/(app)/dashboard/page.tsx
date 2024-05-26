@@ -104,16 +104,15 @@ const Page = () => {
 
 
   const username = session?.user?.username;
-  const baseUrl = `${window.location.protocol}//${window.location.host}`
-  const profileUrl = `${baseUrl}/u/${username}`
+const baseUrl = `${window.location.protocol}://${window.location.host}`; 
+const profileUrl = `${baseUrl}/u/${username}`;
 
-  const copyToClipboard = () => {
-    navigator.clipboard.writeText(profileUrl)
-    toast({
-      title: 'Copied to clipboard',
-    })
-  }
-
+const copyToClipboard = () => {
+  navigator.clipboard.writeText(profileUrl);
+  toast({
+    title: 'Copied to clipboard',
+  });
+};
   if (!session || !session.user) {
     return <div>Please Login</div>
   }
