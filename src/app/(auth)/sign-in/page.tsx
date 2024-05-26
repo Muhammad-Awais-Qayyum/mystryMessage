@@ -102,7 +102,7 @@ const Page = () => {
                 <div className=' text-center'>
                     <p>
 
-                        If you don't have an account?
+                        If you do not have an account?
                         <Link href={'/sign-up'} className=' text-blue-700 hover:text-blue-800 pl-1'>
                             SignUp
                         </Link>
