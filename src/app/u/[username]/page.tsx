@@ -23,7 +23,7 @@ import { Loader2 } from 'lucide-react'
 import { Separator } from '@/components/ui/separator'
 import { Card, CardContent, CardHeader } from '@/components/ui/card'
 import Link from 'next/link'
-const page = () => {
+const Page = () => {
   const { username } = useParams()
   const [isSubmitting, setIsSubmitting] = useState(false)
   const { toast } = useToast()
@@ -184,4 +184,4 @@ const parseStringMessages = (messageString: string): string[] => {
   )
 }
 
-export default page
+export default Page
