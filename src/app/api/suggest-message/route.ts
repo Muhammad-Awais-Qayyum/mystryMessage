@@ -18,7 +18,7 @@ export async function POST(req: Request) {
         const response = await fireworks.completions.create({
             model: 'accounts/fireworks/models/llama-v2-70b-chat',
             stream: true,
-            max_tokens: 300,
+            max_tokens: 50,
             prompt,
         });
         // Convert the response into a friendly text-stream.
