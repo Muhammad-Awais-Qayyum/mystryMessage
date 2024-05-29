@@ -154,7 +154,7 @@ const parseStringMessages = (messageString: string): string[] => {
           <CardHeader>
             <h3 className="text-xl font-semibold">Messages</h3>
           </CardHeader>
-          <CardContent className="flex flex-col space-y-4">
+          <CardContent className="      flex flex-col space-y-4">
             {error ? (
               <p className="text-red-500">{error.message}</p>
             ) : (
@@ -162,10 +162,10 @@ const parseStringMessages = (messageString: string): string[] => {
                 <Button
                   key={index}
                   variant="outline"
-                  className="mb-2"
+                  className="mb-2    "
                   onClick={() => handleMessageClick(message)}
                 >
-                  {message}
+                   <span className=' truncate'>{message}</span>
                 </Button>
               ))
             )}
