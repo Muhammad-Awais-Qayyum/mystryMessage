@@ -58,10 +58,10 @@ const MessageCard = ({ message, onMessageDelete }: MessageCardProps) => {
     return (
         <Card>
             <CardHeader className=' flex  h-20   flex-row justify-between items-center'>
-                <CardTitle>{message.content}</CardTitle>
+                <CardTitle className='text-base mt-1' >{message.content}</CardTitle>
                 <AlertDialog>
                     <AlertDialogTrigger asChild>
-                        <Button variant='destructive'><X className=' w-5 h-5' /></Button>
+                        <Button variant='destructive'><X className=' w-3 h-3' /></Button>
                     </AlertDialogTrigger>
                     <AlertDialogContent>
                         <AlertDialogHeader>
