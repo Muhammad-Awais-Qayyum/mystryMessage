@@ -165,7 +165,7 @@ const parseStringMessages = (messageString: string): string[] => {
                   className="mb-2    "
                   onClick={() => handleMessageClick(message)}
                 >
-                   <span className=' truncate'>{message}</span>
+                   <span className=' truncate '>{message}</span>
                 </Button>
               ))
             )}
